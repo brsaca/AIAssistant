@@ -13,6 +13,7 @@
 		4B1571FD2B154EAB004E247E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B1571FC2B154EAB004E247E /* Preview Assets.xcassets */; };
 		4B88BBD32B16A2BF00CDA338 /* SiriWaveView in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88BBD22B16A2BF00CDA338 /* SiriWaveView */; };
 		4B88BBD62B16A30500CDA338 /* XCAOpenAIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88BBD52B16A30500CDA338 /* XCAOpenAIClient */; };
+		4B88BBDB2B16A5B600CDA338 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88BBDA2B16A5B600CDA338 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4B1571F82B154EAB004E247E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B1571FA2B154EAB004E247E /* AIAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AIAssistant.entitlements; sourceTree = "<group>"; };
 		4B1571FC2B154EAB004E247E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4B88BBDA2B16A5B600CDA338 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		4B88BBD92B16A57E00CDA338 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B88BBDA2B16A5B600CDA338 /* Models.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B88BBDB2B16A5B600CDA338 /* Models.swift in Sources */,
 				4B1571F72B154EA9004E247E /* ContentView.swift in Sources */,
 				4B1571F52B154EA9004E247E /* AIAssistantApp.swift in Sources */,
 			);
