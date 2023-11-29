@@ -28,4 +28,8 @@ final class ViewModel: NSObject {
         return false
     }
     var audioPower = 0.0
+    
+    func startCaptureAudio() {
+        
+    }
 }
