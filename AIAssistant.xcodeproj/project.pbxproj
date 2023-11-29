@@ -14,6 +14,8 @@
 		4B88BBD32B16A2BF00CDA338 /* SiriWaveView in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88BBD22B16A2BF00CDA338 /* SiriWaveView */; };
 		4B88BBD62B16A30500CDA338 /* XCAOpenAIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4B88BBD52B16A30500CDA338 /* XCAOpenAIClient */; };
 		4B88BBDB2B16A5B600CDA338 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88BBDA2B16A5B600CDA338 /* Models.swift */; };
+		4B88BBDF2B16A89000CDA338 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88BBDE2B16A89000CDA338 /* Config.swift */; };
+		4B88BBE12B16A92500CDA338 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88BBE02B16A92500CDA338 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4B1571FA2B154EAB004E247E /* AIAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AIAssistant.entitlements; sourceTree = "<group>"; };
 		4B1571FC2B154EAB004E247E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4B88BBDA2B16A5B600CDA338 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4B88BBDE2B16A89000CDA338 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4B88BBE02B16A92500CDA338 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		4B88BBDC2B16A7BE00CDA338 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4B88BBE02B16A92500CDA338 /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			children = (
 				4B1571F82B154EAB004E247E /* Assets.xcassets */,
 				4B1571FA2B154EAB004E247E /* AIAssistant.entitlements */,
+				4B88BBDE2B16A89000CDA338 /* Config.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,7 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B88BBE12B16A92500CDA338 /* ViewModel.swift in Sources */,
 				4B88BBDB2B16A5B600CDA338 /* Models.swift in Sources */,
+				4B88BBDF2B16A89000CDA338 /* Config.swift in Sources */,
 				4B1571F72B154EA9004E247E /* ContentView.swift in Sources */,
 				4B1571F52B154EA9004E247E /* AIAssistantApp.swift in Sources */,
 			);
@@ -322,7 +330,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AIAssistant/AIAssistant.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AIAssistant/Resources/AIAssistant.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AIAssistant/Preview Content\"";
@@ -348,6 +358,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsc.AIAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -362,7 +373,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AIAssistant/AIAssistant.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AIAssistant/Resources/AIAssistant.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AIAssistant/Preview Content\"";
@@ -388,6 +401,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsc.AIAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
