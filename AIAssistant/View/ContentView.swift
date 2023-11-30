@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
+import SiriWaveView
 
 struct ContentView: View {
     // MARK: View Properties
     @State var vm = ViewModel()
+    @State var isSymbolAnimating = false
     
     var body: some View {
         VStack(spacing: 16) {
             Text("AI Voice Assistant")
                 .font(.title2)
             
-            switch vm.state {
-            case .idle, .error:
-                startCaptureButton
-            default: EmptyView()
-            }
+            Spacer()
+            
+            SiriWaveView()
+                .power(power: vm.audioPower)
+                .opacity(vm.siriWaveFormOpacity)
+                .frame(height: 256)
+                .overlay { overlayView }
+            
+            Spacer()
+            
+            cancelView
             
             Picker("Select Voice", selection: $vm.selectedVoice) {
                 ForEach(VoiceType.allCases, id: \.self) {
@@ -39,6 +47,38 @@ struct ContentView: View {
         }
         .padding()
     }
+}
+
+extension ContentView {
+    @ViewBuilder
+    var overlayView: some View {
+        switch vm.state {
+        case .idle, .error:
+            startCaptureButton
+        case .processingSpeech:
+            Image(systemName: "brain")
+                .symbolEffect(.bounce.up.byLayer, options: .repeating, value: isSymbolAnimating)
+                .font(.system(size: 128))
+                .onAppear {
+                    isSymbolAnimating = true
+                }
+                .onDisappear {
+                    isSymbolAnimating = false
+                }
+        default: EmptyView()
+        }
+    }
+    
+    @ViewBuilder
+    var cancelView: some View {
+        switch vm.state {
+        case .recordingSpeech:
+            cancelRecordingButton
+        case .processingSpeech, .playingSpeech:
+            cancelButton
+        default: EmptyView()
+        }
+    }
     
     var startCaptureButton: some View {
         Button {
@@ -47,6 +87,29 @@ struct ContentView: View {
             Image(systemName: "mic.circle")
                 .symbolRenderingMode(.multicolor)
                 .font(.system(size: 128))
+        }
+        .buttonStyle(.borderless)
+    }
+    
+    var cancelRecordingButton: some View {
+        Button(role: .destructive) {
+            vm.cancelRecording()
+        } label: {
+            Image(systemName: "xmark.circle.fill")
+                .symbolRenderingMode(.multicolor)
+                .font(.system(size: 44))
+        }
+        .buttonStyle(.borderless)
+    }
+    
+    var cancelButton: some View {
+        Button {
+            vm.cancelProcessingTask()
+        } label: {
+            Image(systemName: "stop.circle.fill")
+                .symbolRenderingMode(.monochrome)
+                .foregroundStyle(.red)
+                .font(.system(size: 44))
         }
         .buttonStyle(.borderless)
     }
@@ -61,6 +124,7 @@ struct ContentView: View {
 #Preview("Recording Speech") {
     let vm = ViewModel()
     vm.state = .recordingSpeech
+    vm.audioPower = 0.2
     return ContentView(vm: vm)
 }
 
@@ -73,6 +137,7 @@ struct ContentView: View {
 #Preview("Playing Speech") {
     let vm = ViewModel()
     vm.state = .playingSpeech
+    vm.audioPower = 0.3
     return ContentView(vm: vm)
 }
 
